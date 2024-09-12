@@ -1,0 +1,81 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+""" Common settings -------------------------
+set showmode
+set so=5
+set incsearch
+set nu
+set hlsearch
+set relativenumber
+set showmode
+set showcmd
+set ignorecase
+""" Idea specific settings ------------------
+set ideajoin
+set clipboard+=unnamed
+set NERDTree
+
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+Plug 'vim-surround'
+set surround
+
+let mapleader=" "
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"Debug related map
+map <leader>d <Action>(Debug)
+map <leader>o <Action>(StepOver)
+map <leader>i <Action>(StepInto)
+map <leader>u <Action>(StepOut)
+map <leader>. <Action>(Resume)
+map <leader>e <Action>(QuickEvaluateExpression)
+map <leader>r <Action>(ReformatCode)
+map <leader>b <Action>(ToggleLineBreakpoint)
+"map <leader>p <Action>(ParameterInfo)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+"map <leader>cc <Action>(RunDashboard.Stop)
+map <leader>s <Action>(SelectInProjectView)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map <leader><leader> <Action>(ShowExecutionPoint)
+
+
+
+"https://github.com/JetBrains/ideavim/blob/master/doc/NERDTree-support.md
+
+" -- window navigations
+
+nmap <A-f> <Action>(MaximizeEditorInSplit)
+""; even though it's the same command map it for muscle memory
+nmap <A-\> <Action>(MaximizeEditorInSplit)
+nmap <A-j> <Action>(StretchSplitToBottom)
+nmap <A-k> <Action>(StretchSplitToTop)
+nmap <A-h> <Action>(StretchSplitToLeft)
+nmap <A-l> <Action>(StretchSplitToRight)
+nmap <A-x> <Action>(HideAllWindows)
+
+" mapping the jumping between splits. Hold control while using vim nav.
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
