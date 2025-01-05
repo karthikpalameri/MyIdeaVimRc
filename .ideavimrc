@@ -7,16 +7,14 @@
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
-"set scrolloff=5
+set scrolloff=5
 
 " Do incremental searching.
 set incsearch
 
-" -- Common settings -------------------------
+""" Common settings -------------------------
 set showmode
-" set so=5
-" set scroll=5       " Scroll 5 lines at a time
-set scrolloff=999    " Keep 5 lines visible around the cursor ; 999 to keep it in middle
+set so=5
 set incsearch
 set nu
 set hlsearch
@@ -24,12 +22,9 @@ set relativenumber
 set showmode
 set showcmd
 set ignorecase
-" -- Idea specific settings ------------------
+""" Idea specific settings ------------------
 set ideajoin
 set clipboard+=unnamed
-
-" -- nerdtree related
-"https://github.com/JetBrains/ideavim/blob/master/doc/NERDTree-support.md
 set NERDTree
 
 
@@ -53,7 +48,6 @@ map <leader>o <Action>(StepOver)
 map <leader>i <Action>(StepInto)
 map <leader>u <Action>(StepOut)
 map <leader>. <Action>(Resume)
-map <leader>, <Action>(ForceRunToCursor)
 map <leader>e <Action>(QuickEvaluateExpression)
 map <leader>r <Action>(ReformatCode)
 map <leader>b <Action>(ToggleLineBreakpoint)
@@ -67,8 +61,10 @@ map <leader><leader> <Action>(ShowExecutionPoint)
 
 
 
+"https://github.com/JetBrains/ideavim/blob/master/doc/NERDTree-support.md
 
 " -- window navigations
+
 nmap <A-f> <Action>(MaximizeEditorInSplit)
 ""; even though it's the same command map it for muscle memory
 nmap <A-\> <Action>(MaximizeEditorInSplit)
@@ -77,12 +73,12 @@ nmap <A-k> <Action>(StretchSplitToTop)
 nmap <A-h> <Action>(StretchSplitToLeft)
 nmap <A-l> <Action>(StretchSplitToRight)
 nmap <A-x> <Action>(HideAllWindows)
+map <Esc><Esc> <Action>(HideActiveWindow)
+imap jj <ESC>
 
-" -- mapping the jumping between splits. Hold control while using vim nav.
+" -- split navigations
+" mapping the jumping between splits. Hold control while using vim nav.
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
-
-" -- Yank entire file into the clipboard (for Vim users)
-nnoremap <A-y> :%y+<CR>
